@@ -5,7 +5,7 @@ import { FiShoppingCart } from "react-icons/fi";
 
 function header() {
     return (
-        <div className="bg-amber-300 w-full h-30 flex flex-col ">
+        <header className="bg-amber-300 w-full h-30 flex flex-col ">
 
             <div className="bg-pink-200 w-full h-1/2 flex justify-around items-center">
 
@@ -48,7 +48,7 @@ function header() {
 
 
             </div>
-        </div>
+        </header>
     )
 }
 
