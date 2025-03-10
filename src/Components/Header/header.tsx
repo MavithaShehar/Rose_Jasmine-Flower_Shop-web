@@ -3,6 +3,8 @@ import { FaSearch } from "react-icons/fa";
 import { VscAccount } from "react-icons/vsc";
 import { FiShoppingCart } from "react-icons/fi";
 
+import Navbar from '../Navebar/navbar'
+
 function header() {
     return (
         <header className="bg-amber-300 w-full h-30 flex flex-col ">
@@ -46,6 +48,7 @@ function header() {
 
             <div className="bg-blue-400 w-full h-1/2 ">
 
+                <Navbar/>
 
             </div>
         </header>
