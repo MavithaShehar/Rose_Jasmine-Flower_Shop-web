@@ -1,20 +1,26 @@
-import Header from './Components/Header/header'
-import ContactSection from './Sections/contactSection'
+import Header from './Components/Header/header';
+import ContactSection from './Sections/contactSection';
+import ProdactSection from './Sections/prodactSection';
+import AddSection from './Sections/AddSection';
 
-import ProdactSection from './Sections/prodactSection'
 function App() {
-
   return (
-    <main className="bg-gray-50 h-screen">
+    <main className="bg-amber-950 h-fit w-full ">
 
-     <div className="w-full h-fit mx-auto">
-     <Header></Header>
-     <ProdactSection></ProdactSection>
-     <ContactSection></ContactSection>
-     </div>
+        <div className='fixed w-full z-50'>
+          <Header />
+        </div>
+
+        <div className='pt-30 flex flex-col'> 
+          <AddSection/>
+          <ProdactSection />
+          <ContactSection />
+        </div>
+
+      
 
     </main>
-  )
+  );
 }
 
-export default App
+export default App;
