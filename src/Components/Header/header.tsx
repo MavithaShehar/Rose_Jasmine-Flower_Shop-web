@@ -9,14 +9,14 @@ function header() {
     return (
         <header className=" w-full h-30 flex flex-col ">
 
-            <div className="bg-pink-200 w-full h-1/2 flex justify-around items-center">
+            <div className="bg-gradient-to-r from-pink-700 to-[#d6f6ff] w-full h-1/2 flex justify-around items-center">
 
-                <div className="flex items-center text-3xl text-pink-800 font-medium flex-row ">
-                    <div>
+                <div className="flex items-center text-3xl  font-medium flex-row ">
+                <div className="border-1 border-amber-50 xl:border-3 bg-white rounded-2xl" >
                         <img src={Logo} alt="description" />
                     </div>
                     <div>
-                        <h1>ROSE JASMINE</h1>
+                        <h1 className='text-amber-100 font-extralight '>ROSE JASMINE</h1>
                     </div>
 
                 </div>
@@ -35,21 +35,21 @@ function header() {
 
                 <div className=" w-2xs h-full flex justify-around items-center">
                     <div className='flex flex-col items-center'>
-                        <VscAccount className='size-8  text-green-700'/>
+                        <VscAccount className='size-8  text-green-700' />
                         <h5>Shear</h5>
                     </div>
                     <div className='flex flex-row items-center text-red-700 font-bold'>
-                        <FiShoppingCart className='size-8 text-green-700'/>
+                        <FiShoppingCart className='size-8 text-green-700' />
                         <h5>5</h5>
                     </div>
                 </div>
-                
+
 
             </div>
 
             <div className="bg-blue-400 w-full h-1/2 ">
 
-                <Navbar/>
+                <Navbar />
 
             </div>
         </header>
