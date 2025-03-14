@@ -7,7 +7,7 @@ import Navbar from '../Navebar/navbar'
 
 function header() {
     return (
-        <header className=" w-full h-30 flex flex-col fixed z-10">
+        <header className=" w-full h-30 flex flex-col fixed z-10 ">
 
             <div className="bg-gradient-to-r from-pink-700 to-[#d6f6ff] w-full h-1/2 flex justify-around items-center">
 
