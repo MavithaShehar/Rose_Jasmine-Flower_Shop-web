@@ -86,7 +86,7 @@
       "name": "Lily",
       "color": "White",
       "price": 18.75,
-      "status":"deActivate",
+       "status":"Active",
       "image": "https://img.freepik.com/free-photo/simple-bunch-white-lilies-closed-with-rustic-thread_114579-1855.jpg?ga=GA1.1.1086541973.1741731149&semt=ais_authors_boost",
       "category": "Flowering Plants"
     }

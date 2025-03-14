@@ -1,6 +1,6 @@
-import ContactBg from '../../src/assets/images/contactIMG/contact-Bg.jpg';
-import Info from '../Components/Contact/info'
-import Mail from '../Components/Contact/mail';
+import ContactBg from '../../assets/images/contactIMG/contact-Bg.jpg';
+import Info from './Contact/info'
+import Mail from './Contact/mail';
 
 function ContactSection() {
   return (

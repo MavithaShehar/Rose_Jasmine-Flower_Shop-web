@@ -1,15 +1,26 @@
-import React from 'react';
+import { useState } from 'react';
 import { MdDeleteForever } from 'react-icons/md';
 import { FaStopCircle } from 'react-icons/fa';
-import addsData from '../../public/data/adds.json'; // Adjust the path as needed
+import addsData from '../../../public/data/adds.json';
+import PopupAdd from '../common/popUp/PopupAdd';
 
 function AdminDashBordPosts() {
+  const [visible, setVisible] = useState(false);
+
+  const closeModal = () => {
+    setVisible(false);
+  };
+
   return (
-    <section className="w-full h-full bg-gray-100 p-10">
-      <div className="w-full flex justify-end mb-4">
-        <button className="p-2 bg-green-800 text-white font-semibold rounded-lg hover:bg-green-600 transition duration-300 active:bg-green-800">
+    <section className="w-full h-fit bg-gray-100">
+      <div className="w-full h-fit flex justify-end mb-4">
+        <button
+          onClick={() => setVisible(true)}
+          className="mt-2 p-2 bg-green-800 text-white font-semibold rounded-lg hover:bg-green-600 transition duration-300 active:bg-green-800"
+        >
           Create Poster
         </button>
+        {<PopupAdd isOpen={visible} onRequestClose={closeModal} />}
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -1,11 +1,11 @@
-import Logo from '../../assets/images/headerIMG/Logo.png';
+import Logo from '../../../assets/images/headerIMG/Logo.png';
 import { FaSearch } from "react-icons/fa";
 import { VscAccount } from "react-icons/vsc";
 import { FiShoppingCart } from "react-icons/fi";
 
 import Navbar from '../Navebar/navbar'
 
-function header() {
+function Header() {
     return (
         <header className=" w-full h-30 flex flex-col fixed z-10 ">
 
@@ -56,4 +56,4 @@ function header() {
     )
 }
 
-export default header
+export default Header

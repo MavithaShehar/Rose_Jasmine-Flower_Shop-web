@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
-import jsonData from '../../public/data/adds.json';
+import jsonData from '../../../public/data/adds.json';
 
 function AddSection() {
   const slides = jsonData.adds.filter(slide => slide.status === "Active");
