@@ -6,7 +6,7 @@ interface PopupAddProps {
   onRequestClose: () => void;
 }
 
-function PopupAdd({ isOpen, onRequestClose }: PopupAddProps) {
+function PopupProdact({ isOpen, onRequestClose }: PopupAddProps) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null); // To store the image URL
   const [isActive, setIsActive] = useState(true); // To track Active/Deactivate state
 
@@ -101,4 +101,4 @@ function PopupAdd({ isOpen, onRequestClose }: PopupAddProps) {
   );
 }
 
-export default PopupAdd;
+export default PopupProdact;
