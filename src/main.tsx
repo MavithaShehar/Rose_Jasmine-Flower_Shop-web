@@ -1,7 +1,5 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+
 import './index.css'
-import App from './App.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from './layout.tsx'
 import ErrorPage from './Components/pages/404/ErrorPage.tsx'
