@@ -15,7 +15,7 @@ const ProductSection: React.FC = () => {
 
     return (
         <section className="bg-red-800 py-10">
-            <div className="w-screen pl-20 pr-20 bg-amber-300">
+            <div className="w-full pl-20 pr-20 bg-amber-300">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 bg-amber-900">
 
                     {flowers.map((flower) => (
