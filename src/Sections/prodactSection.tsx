@@ -1,5 +1,5 @@
 import React from "react";
-import jsonData from "../../public/data/prodact.json"; // Ensure the JSON is correctly imported
+import jsonData from "../../public/data/prodact.json"; 
 
 interface Flower {
   id: number;
