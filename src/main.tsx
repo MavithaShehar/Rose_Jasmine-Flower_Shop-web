@@ -5,7 +5,7 @@ import Layout from './layout.tsx'
 import ErrorPage from './Components/pages/404/ErrorPage.tsx'
 import Home from './Components/pages/Home.tsx'
 import AdminDashBordPosts from './Components/pages/AdminDashBordPosts.tsx'
-import Poster from './Components/pages/Poster/poster.tsx'
+import AdminProdactSection from './Components/pages/AdminProdactSection.tsx'
 import ReactDOM from 'react-dom/client'
 
 const router = createBrowserRouter([
@@ -24,7 +24,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/poster",
-        element: <Poster />,
+        element: <AdminDashBordPosts />,
+      },
+      {
+        path: "/products",
+        element: <AdminProdactSection />,
       },
     ],
   },

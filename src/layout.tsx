@@ -17,7 +17,8 @@ export default function Layout() {
            color:"red",
             flexGrow: 1,
             padding: '20px',
-            overflowY: 'auto',
+            overflowY: 'auto'
+            
         }}>
             <Outlet />
         </div>

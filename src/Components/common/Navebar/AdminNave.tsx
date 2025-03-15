@@ -39,7 +39,7 @@ function AdminSideBar() {
           </NavLink>
 
           <Link
-            to="/admin/products"
+            to="/products"
             className="flex items-center space-x-3 p-3 rounded-lg text-gray-950 hover:bg-white hover:text-amber-600 transition-all duration-300"
           >
             <FaShoppingCart className="text-xl" />
