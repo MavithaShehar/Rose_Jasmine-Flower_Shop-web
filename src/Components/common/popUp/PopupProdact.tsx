@@ -24,71 +24,75 @@ function PopupProdact({ isOpen, onRequestClose }: PopupAddProps) {
       isOpen={isOpen}
       onRequestClose={onRequestClose}
       className="w-full h-screen flex items-center justify-center"
-      
     >
-      <div className="bg-red-200 p-6 w-3/5 h-4/5 flex flex-col shadow-lg rounded-lg">
+      <div className="bg-red-200 p-4 w-3/5 h-fit flex flex-col shadow-lg rounded-lg">
         {/* Close Button */}
         <div className="flex justify-end">
           <button
             onClick={onRequestClose}
-            className="p-2 bg-red-800 text-white font-semibold rounded-lg hover:bg-red-600 transition duration-300 active:bg-red-800"
+            className="px-4 py-2 bg-red-800 text-white font-semibold rounded-lg hover:bg-red-600 transition duration-300 active:bg-red-800"
           >
             X
           </button>
         </div>
 
-        {/* Image Upload Field */}
-        <div className=" flex-1">
+        {/* Image Display Section */}
+        <div className="flex w-full h-52 bg-amber-300 justify-center items-center">
+          {selectedImage && (
+            <img
+              src={selectedImage}
+              alt="Selected"
+              className="max-h-full max-w-full object-contain rounded-lg"
+            />
+          )}
+        </div>
+
+        <div className="flex-1">
+          {/* Image Upload Field */}
           <label className="block text-lg font-semibold mb-2">Upload Image</label>
           <input
             type="file"
             accept="image/*"
             onChange={handleImageChange}
-            className="w-full p-2 border border-gray-400 rounded-lg"
+            className="w-1/4 p-2 border border-gray-400 rounded-lg"
           />
-          {/* Display the selected image */}
-          {selectedImage && (
-            <div className="mt-4">
-              <img
-                src={selectedImage}
-                alt="Selected"
-                className="w-full h-96 object-cover rounded-lg"
-              />
-            </div>
-          )}
         </div>
 
-        {/* Active/Deactivate Toggle */}
-        <div className="mt-4">
-          <label className="block text-lg font-semibold mb-2">Status</label>
-          <div className="flex items-center space-x-4">
-            <label className="flex items-center">
-              <input
-                type="radio"
-                name="status"
-                checked={isActive}
-                onChange={() => setIsActive(true)}
-                className="mr-2"
-              />
-              Active
-            </label>
-            <label className="flex items-center">
-              <input
-                type="radio"
-                name="status"
-                checked={!isActive}
-                onChange={() => setIsActive(false)}
-                className="mr-2"
-              />
-              Deactivate
-            </label>
+        {/* Inputs */}
+        <div className="grid grid-flow-row grid-cols-2 gap-4">
+          <div>
+            <label className="block text-lg font-semibold mt-4">Name</label>
+            <input type="text" className="w-full p-2 border rounded-lg" />
+          </div>
+          <div>
+            <label className="block text-lg font-semibold mt-4">Color</label>
+            <input type="text" className="w-full p-2 border rounded-lg" />
+          </div>
+          <div>
+            <label className="block text-lg font-semibold mt-4">Price</label>
+            <input type="number" className="w-full p-2 border rounded-lg" />
+          </div>
+          <div>
+            <label className="block text-lg font-semibold mt-4">Category</label>
+            <input type="text" className="w-full p-2 border rounded-lg" />
           </div>
         </div>
 
-        
+        {/* Status */}
+        <label className="block text-lg font-semibold mt-4">Status</label>
+        <div className="flex items-center space-x-4">
+          <label className="flex items-center">
+            <input type="radio" name="status" checked={isActive} onChange={() => setIsActive(true)} className="mr-2" />
+            Active
+          </label>
+          <label className="flex items-center">
+            <input type="radio" name="status" checked={!isActive} onChange={() => setIsActive(false)} className="mr-2" />
+            Deactivate
+          </label>
+        </div>
 
         {/* Save Button */}
-        <div className=" flex justify-end">
+        <div className="flex justify-end">
           <button
             onClick={onRequestClose}
             className="p-2 bg-green-800 text-white font-semibold rounded-lg hover:bg-green-600 transition duration-300 active:bg-green-800"
