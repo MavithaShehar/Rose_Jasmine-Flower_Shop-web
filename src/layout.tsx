@@ -6,34 +6,26 @@ import Header from "./Components/common/Header/header";
 export default function Layout() {
     const [isUser, setIUser] = useState(false);
     const [isAdmin, setIsAdmin] = useState(true);
-  return (
-    <>
-    {isAdmin ? 
-        <div style={{ display: 'flex', height: '100vh' }}>
-           
-                <AdminNav />
-           
-        <div style={{
-           color:"red",
-            flexGrow: 1,
-            padding: '20px',
-            overflowY: 'auto'
-            
-        }}>
-            <Outlet />
-        </div>
-    </div>
-    : 
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100vh'}}>
-      {/* Header */}
-      <header >
-        <Header />
-      </header>
-      <div>
-        <Outlet />
-      </div>
-    </div>
-    }
-    </>
-  );
+
+    return (
+        <>
+            {isAdmin ? (
+                <div className="flex h-screen">
+                    <AdminNav />
+                    <div className="flex-grow px-2 overflow-y-auto relative text-red-500">
+                        <Outlet />
+                    </div>
+                </div>
+            ) : (
+                <div className="flex flex-col h-screen">
+                    <header>
+                        <Header />
+                    </header>
+                    <div className="flex-grow">
+                        <Outlet />
+                    </div>
+                </div>
+            )}
+        </>
+    );
 }
