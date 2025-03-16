@@ -7,6 +7,8 @@ import Home from './Components/pages/Home.tsx'
 import AdminDashBordPosts from './Components/pages/AdminDashBordPosts.tsx'
 import AdminProdactSection from './Components/pages/AdminProdactSection.tsx'
 import ReactDOM from 'react-dom/client'
+import AdminOrderSection from './Components/pages/AdminOrderSection.tsx'
+import AdminDashboard from './Components/pages/AdminDashboard.tsx'
 
 const router = createBrowserRouter([
   {
@@ -20,7 +22,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/admin",
-        element: <AdminDashBordPosts />,
+        element: <AdminDashboard />,
       },
       {
         path: "/poster",
@@ -29,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/products",
         element: <AdminProdactSection />,
+      },
+      {
+        path: "/orders",
+        element: <AdminOrderSection />,
       },
     ],
   },
