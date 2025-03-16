@@ -9,7 +9,7 @@ function Navbar() {
           Categories
         </Link>
         <Link to="/about" className="text-blue-600 font-bold hover:text-pink-700">About Shop</Link>
-        <Link to="/contact" className="text-blue-600 font-bold hover:text-pink-700">Contact & Location</Link>
+        <Link hrefLang='contact_section' to="/contact" className="text-blue-600 font-bold hover:text-pink-700">Contact & Location</Link>
      
       </nav>
     </div>

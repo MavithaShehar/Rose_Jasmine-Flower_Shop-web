@@ -4,8 +4,8 @@ import { useState } from "react";
 import Header from "./Components/common/Header/header";
 
 export default function Layout() {
-    const [isUser, setIUser] = useState(false);
-    const [isAdmin, setIsAdmin] = useState(true);
+    const [isUser, setIUser] = useState(true);
+    const [isAdmin, setIsAdmin] = useState(false);
 
     return (
         <>
