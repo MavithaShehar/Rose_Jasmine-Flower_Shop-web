@@ -1,5 +1,5 @@
-import {NavLink } from 'react-router-dom';
-import { FaTachometerAlt, FaBox, FaChartLine} from 'react-icons/fa';
+import { NavLink } from 'react-router-dom';
+import { FaTachometerAlt, FaBox, FaShoppingCart, FaClipboardList } from 'react-icons/fa';
 
 function AdminSideBar() {
   return (
@@ -13,10 +13,9 @@ function AdminSideBar() {
           <NavLink
             to="/admin"
             className={({ isActive }) =>
-              `flex items-center space-x-3 p-3 rounded-lg transition-all duration-300 ${
-                isActive
-                  ? 'bg-white text-amber-600 shadow-md font-semibold'
-                  : 'text-gray-950 hover:bg-white hover:text-amber-600'
+              `flex items-center space-x-3 p-3 rounded-lg transition-all duration-300 ${isActive
+                ? 'bg-white text-amber-600 shadow-md font-semibold'
+                : 'text-gray-950 hover:bg-white hover:text-amber-600'
               }`
             }
           >
@@ -27,10 +26,9 @@ function AdminSideBar() {
           <NavLink
             to="/poster"
             className={({ isActive }) =>
-              `flex items-center space-x-3 p-3 rounded-lg transition-all duration-300 ${
-                isActive
-                  ? 'bg-white text-amber-600 shadow-md font-semibold'
-                  : 'text-gray-950 hover:bg-white hover:text-amber-600'
+              `flex items-center space-x-3 p-3 rounded-lg transition-all duration-300 ${isActive
+                ? 'bg-white text-amber-600 shadow-md font-semibold'
+                : 'text-gray-950 hover:bg-white hover:text-amber-600'
               }`
             }
           >
@@ -41,45 +39,30 @@ function AdminSideBar() {
           <NavLink
             to="/products"
             className={({ isActive }) =>
-              `flex items-center space-x-3 p-3 rounded-lg transition-all duration-300 ${
-                isActive
-                  ? 'bg-white text-amber-600 shadow-md font-semibold'
-                  : 'text-gray-950 hover:bg-white hover:text-amber-600'
+              `flex items-center space-x-3 p-3 rounded-lg transition-all duration-300 ${isActive
+                ? 'bg-white text-amber-600 shadow-md font-semibold'
+                : 'text-gray-950 hover:bg-white hover:text-amber-600'
               }`
             }
           >
-            <FaBox className="text-xl" />
+            <FaShoppingCart className="text-xl" />
             <span>Prodacts</span>
           </NavLink>
 
           <NavLink
             to="/orders"
             className={({ isActive }) =>
-              `flex items-center space-x-3 p-3 rounded-lg transition-all duration-300 ${
-                isActive
-                  ? 'bg-white text-amber-600 shadow-md font-semibold'
-                  : 'text-gray-950 hover:bg-white hover:text-amber-600'
+              `flex items-center space-x-3 p-3 rounded-lg transition-all duration-300 ${isActive
+                ? 'bg-white text-amber-600 shadow-md font-semibold'
+                : 'text-gray-950 hover:bg-white hover:text-amber-600'
               }`
             }
           >
-            <FaBox className="text-xl" />
+            <FaClipboardList className="text-xl" />
             <span>Orders</span>
           </NavLink>
 
-          {/* Additional Links */}
-          <NavLink
-            to="/admin/reports"
-            className={({ isActive }) =>
-              `flex items-center space-x-3 p-3 rounded-lg transition-all duration-300 ${
-                isActive
-                  ? 'bg-white text-amber-600 shadow-md font-semibold'
-                  : 'text-gray-950 hover:bg-white hover:text-amber-600'
-              }`
-            }
-          >
-            <FaChartLine className="text-xl" />
-            <span>Reports</span>
-          </NavLink>
+         
         </nav>
       </div>
     </section>
