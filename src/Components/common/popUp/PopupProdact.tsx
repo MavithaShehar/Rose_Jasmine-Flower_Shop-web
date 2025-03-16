@@ -19,13 +19,19 @@ function PopupProdact({ isOpen, onRequestClose }: PopupAddProps) {
     }
   };
 
+  // Function to render the selected image
+  const renderImage = () => {
+    if (!selectedImage) return null;
+    return <img src={selectedImage} alt="Selected" className="rounded-lg max-h-64" />;
+  };
+
   return (
     <Modal
       isOpen={isOpen}
       onRequestClose={onRequestClose}
       className="w-full h-screen flex items-center justify-center"
     >
-      <div className="bg-red-200 p-4 w-3/5 h-fit flex flex-col shadow-lg rounded-lg">
+      <div className="bg-red-200 p-4 w-2/5 h-fit flex flex-col shadow-lg rounded-lg">
         {/* Close Button */}
         <div className="flex justify-end">
           <button
@@ -37,14 +43,10 @@ function PopupProdact({ isOpen, onRequestClose }: PopupAddProps) {
         </div>
 
         {/* Image Display Section */}
-        <div className="flex w-full h-52 bg-amber-300 justify-center items-center">
-          {selectedImage && (
-            <img
-              src={selectedImage}
-              alt="Selected"
-              className="max-h-full max-w-full object-contain rounded-lg"
-            />
-          )}
+        <div className="flex w-full h-64 bg-amber-300 justify-center items-center">
+          <div className="w-64 h-64 border-4 border-gray-500 bg-white rounded-lg flex justify-center items-center overflow-hidden">
+            {renderImage()} {/* Calls the function to display the image */}
+          </div>
         </div>
 
         <div className="flex-1">
@@ -54,25 +56,25 @@ function PopupProdact({ isOpen, onRequestClose }: PopupAddProps) {
             type="file"
             accept="image/*"
             onChange={handleImageChange}
-            className="w-1/4 p-2 border border-gray-400 rounded-lg"
+            className="w-3/4 p-2 border border-gray-400 rounded-lg"
           />
         </div>
 
         {/* Inputs */}
-        <div className="grid grid-flow-row grid-cols-2 gap-4">
-          <div>
+        <div className="w-full grid grid-flow-row grid-cols-2">
+          <div className="w-3/4">
             <label className="block text-lg font-semibold mt-4">Name</label>
             <input type="text" className="w-full p-2 border rounded-lg" />
           </div>
-          <div>
+          <div className="w-2/4">
             <label className="block text-lg font-semibold mt-4">Color</label>
             <input type="text" className="w-full p-2 border rounded-lg" />
           </div>
-          <div>
+          <div className="w-2/4">
             <label className="block text-lg font-semibold mt-4">Price</label>
             <input type="number" className="w-full p-2 border rounded-lg" />
           </div>
-          <div>
+          <div className="w-3/3">
             <label className="block text-lg font-semibold mt-4">Category</label>
             <input type="text" className="w-full p-2 border rounded-lg" />
           </div>
