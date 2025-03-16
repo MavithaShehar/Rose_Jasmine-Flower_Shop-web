@@ -1,5 +1,5 @@
-import { Link, NavLink } from 'react-router-dom';
-import { FaTachometerAlt, FaBox, FaClipboardList, FaChartLine, FaShoppingCart } from 'react-icons/fa';
+import {NavLink } from 'react-router-dom';
+import { FaTachometerAlt, FaBox, FaChartLine} from 'react-icons/fa';
 
 function AdminSideBar() {
   return (
@@ -52,13 +52,19 @@ function AdminSideBar() {
             <span>Prodacts</span>
           </NavLink>
 
-          <Link
-            to="/admin/orders"
-            className="flex items-center space-x-3 p-3 rounded-lg text-gray-950 hover:bg-white hover:text-amber-600 transition-all duration-300"
+          <NavLink
+            to="/orders"
+            className={({ isActive }) =>
+              `flex items-center space-x-3 p-3 rounded-lg transition-all duration-300 ${
+                isActive
+                  ? 'bg-white text-amber-600 shadow-md font-semibold'
+                  : 'text-gray-950 hover:bg-white hover:text-amber-600'
+              }`
+            }
           >
-            <FaClipboardList className="text-xl" />
+            <FaBox className="text-xl" />
             <span>Orders</span>
-          </Link>
+          </NavLink>
 
           {/* Additional Links */}
           <NavLink
