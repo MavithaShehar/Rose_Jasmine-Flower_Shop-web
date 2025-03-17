@@ -1,21 +1,30 @@
 import { useState } from 'react';
 import Modal from 'react-modal';
 
-interface PopupAddProps {
+interface PopupProdactProps {
   isOpen: boolean;
   onRequestClose: () => void;
 }
 
-function PopupProdact({ isOpen, onRequestClose }: PopupAddProps) {
+function PopupProdact({ isOpen, onRequestClose }: PopupProdactProps) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null); // To store the image URL
   const [isActive, setIsActive] = useState(true); // To track Active/Deactivate state
+  const [imageUrl, setImageUrl] = useState<string>(''); // To store the URL input
 
-  // Handle image selection
+  // Handle image file selection
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
       const imageUrl = URL.createObjectURL(file); // Create a URL for the selected image
       setSelectedImage(imageUrl);
+    }
+  };
+
+  // Handle URL input change
+  const handleUrlChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const url = event.target.value;
+    if (url) {
+      setSelectedImage(url); // Set the URL as the image source
     }
   };
 
@@ -50,12 +59,13 @@ function PopupProdact({ isOpen, onRequestClose }: PopupAddProps) {
         </div>
 
         <div className="flex-1">
-          {/* Image Upload Field */}
-          <label className="block text-lg font-semibold mb-2">Upload Image</label>
+         
+          {/* URL Input Field */}
+          <label className="block text-lg font-semibold mb-2">Paste Image URL</label>
           <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageChange}
+            type="text"
+            onChange={handleUrlChange}
+            placeholder="Paste image URL here"
             className="w-3/4 p-2 border border-gray-400 rounded-lg"
           />
         </div>

@@ -7,7 +7,9 @@ import Home from './Components/pages/Home';
 
 function App() {
     return (
-   <></> 
+   <>
+    <ContactSection />
+   </> 
   );
 }
 
