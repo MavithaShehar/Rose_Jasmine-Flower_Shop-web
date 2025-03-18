@@ -5,16 +5,24 @@ import { VscAccount } from "react-icons/vsc";
 import { FiShoppingCart } from "react-icons/fi";
 import Navbar from "../Navebar/navbar";
 import Ordered from "../Header/ordered"; // Import Ordered component
+import PopupAdd from "../popUp/PopupAdd";
+import UserRegister from "./userLogin";
+import UserLogin from "./userLogin";
 
 function Header() {
     const [isCartOpen, setIsCartOpen] = useState(false);
+    const [visible, setVisible] = useState(false);
 
     const toggleCart = () => {
         setIsCartOpen(!isCartOpen);
     };
 
+    const closeModal = () => {
+        setVisible(false);
+      };
+
     return (
-        <header className="w-full h-30 flex flex-col fixed z-10">
+        <header className="w-full h-30 flex flex-col fixed z-1">
             {/* Top Section */}
             <div className="bg-gradient-to-r from-pink-700 to-[#d6f6ff] w-full h-1/2 flex justify-around items-center">
                 {/* Logo */}
@@ -41,10 +49,18 @@ function Header() {
 
                 {/* Account & Cart */}
                 <div className="w-2xs h-full flex justify-around items-center">
+                    
+                    <button className=""
+                     onClick={() => setVisible(true)}
+                    >    
                     <div className="flex flex-col items-center">
-                        <VscAccount className="size-8 text-green-700" />
+                        <VscAccount className="size-8 text-green-700 active:text-green-200" />
                         <h5>Shear</h5>
                     </div>
+                    </button>
+
+                    {<UserLogin isOpen={visible} onRequestClose={closeModal} />}
+                    
                     {/* Cart Button */}
                     <button
                         onClick={toggleCart}
