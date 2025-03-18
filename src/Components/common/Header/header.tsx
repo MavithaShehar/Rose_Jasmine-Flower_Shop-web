@@ -4,14 +4,14 @@ import { FaSearch } from "react-icons/fa";
 import { VscAccount } from "react-icons/vsc";
 import { FiShoppingCart } from "react-icons/fi";
 import Navbar from "../Navebar/navbar";
-import Ordered from "../Header/ordered"; // Import Ordered component
-import PopupAdd from "../popUp/PopupAdd";
-import UserRegister from "./userLogin";
+import Ordered from "../Header/ordered"; 
 import UserLogin from "./userLogin";
+import Cookies from "js-cookie";
 
 function Header() {
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [visible, setVisible] = useState(false);
+    const [userEmail, setUserEmail] = useState<string | null>(Cookies.get("email") || null);
 
     const toggleCart = () => {
         setIsCartOpen(!isCartOpen);
@@ -19,13 +19,12 @@ function Header() {
 
     const closeModal = () => {
         setVisible(false);
-      };
+    };
+
 
     return (
         <header className="w-full h-30 flex flex-col fixed z-1">
-            {/* Top Section */}
             <div className="bg-gradient-to-r from-pink-700 to-[#d6f6ff] w-full h-1/2 flex justify-around items-center">
-                {/* Logo */}
                 <div className="flex items-center text-3xl font-medium flex-row">
                     <div className="border-1 border-amber-50 xl:border-3 bg-white rounded-2xl">
                         <img src={Logo} alt="description" />
@@ -33,7 +32,6 @@ function Header() {
                     <h1 className="text-amber-100 font-extralight">ROSE JASMINE</h1>
                 </div>
 
-                {/* Search Bar */}
                 <div>
                     <div className="flex items-center bg-white border border-gray-300 rounded-full px-1 py-2 w-120 h-10">
                         <input
@@ -47,25 +45,17 @@ function Header() {
                     </div>
                 </div>
 
-                {/* Account & Cart */}
                 <div className="w-2xs h-full flex justify-around items-center">
-                    
-                    <button className=""
-                     onClick={() => setVisible(true)}
-                    >    
-                    <div className="flex flex-col items-center">
-                        <VscAccount className="size-8 text-green-700 active:text-green-200" />
-                        <h5>Shear</h5>
-                    </div>
+                    <button className="" onClick={() => setVisible(true)}>
+                        <div className="flex flex-col items-center">
+                            <VscAccount className="size-8 text-green-700 active:text-green-200" />
+                            <h5>{userEmail || "Sing In"}</h5>
+                        </div>
                     </button>
 
-                    {<UserLogin isOpen={visible} onRequestClose={closeModal} />}
-                    
-                    {/* Cart Button */}
-                    <button
-                        onClick={toggleCart}
-                        className="flex flex-row items-center text-red-700 font-bold cursor-pointer"
-                    >
+                    {<UserLogin isOpen={visible} onRequestClose={closeModal} setUserEmail={setUserEmail} />}
+
+                    <button onClick={toggleCart} className="flex flex-row items-center text-red-700 font-bold cursor-pointer">
                         <FiShoppingCart className="size-8 text-green-700 active:text-green-200" />
                         <h5>5</h5>
                     </button>
@@ -74,13 +64,9 @@ function Header() {
                 </div>
             </div>
 
-            {/* Navbar Section */}
             <div className="bg-blue-400 w-full h-1/2">
                 <Navbar />
             </div>
-
-           
-            
         </header>
     );
 }

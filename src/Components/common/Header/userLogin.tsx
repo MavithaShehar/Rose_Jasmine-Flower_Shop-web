@@ -1,21 +1,22 @@
 import { useState } from "react";
 import { IoIosContacts } from "react-icons/io";
 import UserRegister from "./userRegister ";
-import Cookies from "js-cookie";  // Import js-cookie
+import Cookies from "js-cookie";
 
 interface UserRegisterProps {
   isOpen: boolean;
   onRequestClose: () => void;
+  setUserEmail: (email: string | null) => void;
 }
 
-function UserLogin({ isOpen, onRequestClose }: UserRegisterProps) {
+function UserLogin({ isOpen, onRequestClose, setUserEmail }: UserRegisterProps) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    
+
     try {
       const response = await fetch("http://localhost:3000/api/auth/login", {
         method: "POST",
@@ -28,16 +29,15 @@ function UserLogin({ isOpen, onRequestClose }: UserRegisterProps) {
       const data = await response.json();
 
       if (response.ok) {
-        // Store the token in the cookie with an expiration of 1 hour
         Cookies.set("token", data.token, { expires: 1 / 24 });
-
-        // Optionally store the role if needed
         Cookies.set("role", data.role, { expires: 1 / 24 });
+        Cookies.set("email", email, { expires: 1 / 24 });
 
-        // Close the login modal after successful login
+        setUserEmail(email); // Update Header with logged-in email
+        setEmail("");
+        setPassword("");
+
         onRequestClose();
-
-        // Optional: Redirect user or perform other actions
         alert("Login successful!");
       } else {
         alert(data.message || "Something went wrong.");
@@ -71,29 +71,16 @@ function UserLogin({ isOpen, onRequestClose }: UserRegisterProps) {
               className="p-2 border rounded"
               required
             />
-            <button
-              type="submit"
-              className="bg-blue-500 text-white p-2 rounded hover:bg-blue-700 transition duration-300"
-            >
+            <button type="submit" className="bg-blue-500 text-white p-2 rounded hover:bg-blue-700 transition duration-300">
               Log In
             </button>
           </form>
-          <button
-            onClick={onRequestClose}
-            className="mt-4 text-red-600 hover:underline block mx-auto"
-          >
+          <button onClick={onRequestClose} className="mt-4 text-red-600 hover:underline block mx-auto">
             Close
           </button>
-
-          {/* Open Register Modal */}
-          <button
-            onClick={() => setIsRegisterOpen(true)}
-            className="w-full flex justify-end text-xl hover:text-blue-600 active:text-black"
-          >
+          <button onClick={() => setIsRegisterOpen(true)} className="w-full flex justify-end text-xl hover:text-blue-600 active:text-black">
             Sign Up
           </button>
-
-          {/* Render UserRegister Modal */}
           <UserRegister isOpen={isRegisterOpen} onRequestClose={() => setIsRegisterOpen(false)} />
         </div>
       </div>
