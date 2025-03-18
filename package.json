@@ -12,6 +12,7 @@
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@tailwindcss/vite": "^4.0.12",
+    "js-cookie": "^3.0.5",
     "react": "^19.0.0",
     "react-datepicker": "^8.2.1",
     "react-dom": "^19.0.0",
@@ -23,6 +24,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
+    "@types/js-cookie": "^3.0.6",
     "@types/react": "^19.0.10",
     "@types/react-date-range": "^1.4.10",
     "@types/react-dom": "^19.0.4",

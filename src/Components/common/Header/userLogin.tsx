@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { IoIosContacts } from "react-icons/io";
 import UserRegister from "./userRegister ";
+import Cookies from "js-cookie";  // Import js-cookie
 
 interface UserRegisterProps {
   isOpen: boolean;
@@ -12,9 +13,39 @@ function UserLogin({ isOpen, onRequestClose }: UserRegisterProps) {
   const [password, setPassword] = useState("");
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    console.log({ email, password });
+    
+    try {
+      const response = await fetch("http://localhost:3000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Store the token in the cookie with an expiration of 1 hour
+        Cookies.set("token", data.token, { expires: 1 / 24 });
+
+        // Optionally store the role if needed
+        Cookies.set("role", data.role, { expires: 1 / 24 });
+
+        // Close the login modal after successful login
+        onRequestClose();
+
+        // Optional: Redirect user or perform other actions
+        alert("Login successful!");
+      } else {
+        alert(data.message || "Something went wrong.");
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+      alert("Something went wrong.");
+    }
   };
 
   return (
