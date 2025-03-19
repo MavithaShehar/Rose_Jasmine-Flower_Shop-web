@@ -33,6 +33,7 @@ function UserLogin({ isOpen, onRequestClose, setUserEmail }: UserRegisterProps) 
         Cookies.set("role", data.role, { expires: 1 / 24 });
         Cookies.set("email", email, { expires: 1 / 24 });
 
+      
         setUserEmail(email); // Update Header with logged-in email
         setEmail("");
         setPassword("");

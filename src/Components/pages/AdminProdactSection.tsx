@@ -27,7 +27,7 @@ function AdminProdactSection() {
   return (
     <section className="relative w-full min-h-screen bg-blue-700 flex flex-col">
       {/* Header */}
-      <div className="sticky top-0 right-0 z-10 bg-white flex items-center justify-end w-full h-20 border-2 border-solid px-5">
+      <div className="sticky top-0 right-0 z-10 bg-white flex items-center justify-end w-full h-15 border-2 border-solid px-5">
         <button
           onClick={() => setVisible(true)}
           className="my-2 p-2 bg-green-800 text-white font-semibold rounded-lg hover:bg-green-600 transition duration-300 active:bg-green-800"

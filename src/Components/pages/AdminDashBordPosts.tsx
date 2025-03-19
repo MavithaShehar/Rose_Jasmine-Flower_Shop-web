@@ -12,16 +12,18 @@ function AdminDashBordPosts() {
   };
 
   return (
-    <section className="w-full h-fit bg-gray-100">
-      <div className="w-full h-fit flex justify-end mb-4">
+    <section className="w-full h-fit relative bg-gray-100">
+    
+      <div className="sticky top-0 right-0 z-10 bg-white flex items-center justify-end w-full h-15 border-2 border-solid px-5">
         <button
           onClick={() => setVisible(true)}
-          className="mt-2 p-2 bg-green-800 text-white font-semibold rounded-lg hover:bg-green-600 transition duration-300 active:bg-green-800"
+          className="my-2 p-2 bg-green-800 text-white font-semibold rounded-lg hover:bg-green-600 transition duration-300 active:bg-green-800"
         >
           Create Poster
         </button>
         {<PopupAdd isOpen={visible} onRequestClose={closeModal} />}
       </div>
+
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {addsData.adds.map((add, index) => (
