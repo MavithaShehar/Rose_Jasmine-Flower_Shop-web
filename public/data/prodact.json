@@ -1,0 +1,94 @@
+{
+  "flowers": [
+    {
+      "id": 1,
+      "name": "Rose",
+      "color": "Red",
+      "price": 15.99,
+      "status":"Active",
+      "image": "https://img.freepik.com/free-photo/top-view-beautiful-roses-bouquet-with-pink-ribbon_23-2148822309.jpg?t=st=1741788762~exp=1741792362~hmac=7ea0050b9d0034ffc5181824983d5680c1329a398b4bb97135d646c01d8e3b57&w=740",
+      "category": "Flowering Plants"
+    },
+    {
+      "id": 2,
+      "name": "Tulip",
+      "color": "Yellow",
+      "price": 10.49,
+      "status":"Active",
+      "image": "https://img.freepik.com/free-photo/tulip-flowers-bouquet-pack-paper-white-table_23-2148103262.jpg?t=st=1741817502~exp=1741821102~hmac=926a854b74e8e72a99103a883cc679fc52d5fd62a5401b567518f2557ee535f7&w=740",
+      "category": "Flowering Plants"
+    },
+    {
+      "id": 3,
+      "name": "Dahilas",
+      "color": "Yellow",
+      "price": 12.99,
+      "status":"Active",
+      "image": "https://img.freepik.com/premium-photo/bouquet-dahilas-isolated-black_392895-300904.jpg?ga=GA1.1.1086541973.1741731149&semt=ais_authors_boost",
+      "category": "Flowering Plants"
+    },
+    {
+      "id": 4,
+      "name": "Orchid",
+      "color": "Purple",
+      "price": 20.50,
+      "status":"Active",
+      "image": "https://img.freepik.com/premium-photo/bouquet-religious-ceremonies_33755-4714.jpg?ga=GA1.1.1086541973.1741731149&semt=ais_authors_boost",
+      "category": "Exotic Plants"
+    },
+    {
+      "id": 5,
+      "name": "Lily",
+      "color": "White",
+      "price": 18.75,
+      "status":"Active",
+      "image": "https://img.freepik.com/free-photo/simple-bunch-white-lilies-closed-with-rustic-thread_114579-1855.jpg?ga=GA1.1.1086541973.1741731149&semt=ais_authors_boost",
+      "category": "Flowering Plants"
+    },
+    {
+      "id": 6,
+      "name": "Rose",
+      "color": "Red",
+      "price": 15.99,
+      "status":"Active",
+      "image": "https://ewfivukmzjxobjaootmx.supabase.co/storage/v1/object/public/rose-jasmine//DSC9240_1080x.webp",
+      "category": "Flowering Plants"
+    },
+    {
+      "id": 7,
+      "name": "Tulip",
+      "color": "Yellow",
+      "price": 10.49,
+      "status":"Active",
+      "image": "https://img.freepik.com/free-photo/tulip-flowers-bouquet-pack-paper-white-table_23-2148103262.jpg?t=st=1741817502~exp=1741821102~hmac=926a854b74e8e72a99103a883cc679fc52d5fd62a5401b567518f2557ee535f7&w=740",
+      "category": "Flowering Plants"
+    },
+    {
+      "id": 8,
+      "name": "Dahilas",
+      "color": "Yellow",
+      "price": 12.99,
+      "status":"Active",
+      "image": "https://img.freepik.com/premium-photo/bouquet-dahilas-isolated-black_392895-300904.jpg?ga=GA1.1.1086541973.1741731149&semt=ais_authors_boost",
+      "category": "Flowering Plants"
+    },
+    {
+      "id": 9,
+      "name": "Orchid",
+      "color": "Purple",
+      "price": 20.50,
+      "status":"Active",
+      "image": "https://img.freepik.com/premium-photo/bouquet-religious-ceremonies_33755-4714.jpg?ga=GA1.1.1086541973.1741731149&semt=ais_authors_boost",
+      "category": "Exotic Plants"
+    },
+    {
+      "id": 10,
+      "name": "Lily",
+      "color": "White",
+      "price": 18.75,
+       "status":"Active",
+      "image": "https://img.freepik.com/free-photo/simple-bunch-white-lilies-closed-with-rustic-thread_114579-1855.jpg?ga=GA1.1.1086541973.1741731149&semt=ais_authors_boost",
+      "category": "Flowering Plants"
+    }
+  ]
+}

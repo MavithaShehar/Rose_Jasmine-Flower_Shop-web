@@ -1,10 +1,46 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+import './index.css'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Layout from './layout.tsx'
+import ErrorPage from './Components/pages/404/ErrorPage.tsx'
+import Home from './Components/pages/Home.tsx'
+import AdminDashBordPosts from './Components/pages/AdminDashBordPosts.tsx'
+import AdminProdactSection from './Components/pages/AdminProdactSection.tsx'
+import ReactDOM from 'react-dom/client'
+import AdminOrderSection from './Components/pages/AdminOrderSection.tsx'
+import AdminDashboard from './Components/pages/AdminDashboard.tsx'
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/home",
+        element: <Home />,
+      },
+      {
+        path: "/admin",
+        element: <AdminDashboard />,
+      },
+      {
+        path: "/poster",
+        element: <AdminDashBordPosts />,
+      },
+      {
+        path: "/products",
+        element: <AdminProdactSection />,
+      },
+      {
+        path: "/orders",
+        element: <AdminOrderSection />,
+      },
+    ],
+  },
+]);
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <RouterProvider router={router} />
+);
+
