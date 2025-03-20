@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Modal from 'react-modal';
 import Cookies from "js-cookie";
+import { FaPlay } from "react-icons/fa";
 
 interface PopupAddProps {
   isOpen: boolean;
@@ -96,7 +97,7 @@ function PopupAdd({ isOpen, onRequestClose }: PopupAddProps) {
                 onChange={() => setFormData({ ...formData, status: 'Deactivated' })}
                 className="mr-2"
               />
-              Deactivate
+              Inactivate
             </label>
           </div>
         </div>
