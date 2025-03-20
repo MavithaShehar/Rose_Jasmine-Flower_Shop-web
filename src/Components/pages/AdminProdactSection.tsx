@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import PopupProdact from "../common/popUp/PopupProdact";
 import { GrUpdate } from "react-icons/gr";
-import { FaRegCircleStop } from "react-icons/fa6";
 import { MdDeleteForever } from "react-icons/md";
+
+import Cookies from "js-cookie";
 
 interface Flower {
   _id: string;
@@ -42,7 +43,43 @@ function AdminProdactSection() {
     };
 
     fetchFlowers();
-  }, []);
+  }, []); // Added empty dependency array to run only once when the component mounts
+
+  const handleDeleteProduct = async (_id: string) => {
+    if (!_id) return;
+  
+    const token = Cookies.get("token");
+  
+    if (!token) {
+      alert("No token found. Please login again.");
+      return;
+    }
+    try {
+      console.log("Deleting product ID:", _id);
+      const response = await fetch(`http://localhost:3000/api/products/${_id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+  
+      const data = await response.json();
+  
+      if (response.ok) {
+        setFlowers((prevFlowers) => prevFlowers.filter((flower) => flower._id !== _id));
+        alert("Product deleted successfully.");
+      } else {
+        alert(data.message || "Something went wrong.");
+      }
+    } catch (error) {
+      console.error("Error deleting data:", error);
+      alert("Something went wrong.");
+    }
+  };
+  
+  
+  
 
   // Function to update the product list after an update
   const handleUpdateProduct = (updatedFlower: Flower) => {
@@ -51,8 +88,6 @@ function AdminProdactSection() {
         flower._id === updatedFlower._id ? updatedFlower : flower
       )
     );
-
-  
   };
 
   return (
@@ -94,7 +129,7 @@ function AdminProdactSection() {
             </div>
 
             {/* Icons */}
-            <div className="flex flex-col items-center justify-center gap-5 px-4 bg-amber-50">
+            <div className="flex flex-col items-center justify-center gap-15 px-4 bg-amber-50">
               {/* Update Button */}
               <GrUpdate
                 className="text-3xl text-green-600 hover:text-gray-800 transition cursor-pointer"
@@ -103,9 +138,11 @@ function AdminProdactSection() {
                   setVisible(true);
                 }}
               />
-              {/* Other Buttons */}
-              <FaRegCircleStop className="text-3xl text-yellow-600 hover:text-gray-800 transition cursor-pointer" />
-              <MdDeleteForever className="text-4xl text-red-600 hover:text-red-800 transition cursor-pointer" />
+              {/* Delete Button */}
+              <MdDeleteForever
+                className="text-4xl text-red-600 hover:text-red-800 transition cursor-pointer"
+                onClick={() => handleDeleteProduct(flower._id)} // Trigger delete on click
+              />
             </div>
           </div>
         ))}
