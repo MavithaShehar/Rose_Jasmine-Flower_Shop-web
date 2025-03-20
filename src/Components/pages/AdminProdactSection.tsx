@@ -30,20 +30,15 @@ function AdminProdactSection() {
       try {
         const response = await fetch("http://localhost:3000/api/products");
         const data = await response.json();
-
-        if (response.ok) {
-          setFlowers(data);
-        } else {
-          alert(data.message || "Something went wrong.");
-        }
+        if (response.ok) setFlowers(data);
       } catch (error) {
         console.error("Error fetching data:", error);
-        alert("Something went wrong.");
       }
     };
-
+  
     fetchFlowers();
-  }, []); // Added empty dependency array to run only once when the component mounts
+  }, [flowers]); // Refetch when `flowers` state updates
+   // Added empty dependency array to run only once when the component mounts
 
   const handleDeleteProduct = async (_id: string) => {
     if (!_id) return;
@@ -54,6 +49,7 @@ function AdminProdactSection() {
       alert("No token found. Please login again.");
       return;
     }
+  
     try {
       console.log("Deleting product ID:", _id);
       const response = await fetch(`http://localhost:3000/api/products/${_id}`, {
@@ -77,6 +73,7 @@ function AdminProdactSection() {
       alert("Something went wrong.");
     }
   };
+  
   
   
   
