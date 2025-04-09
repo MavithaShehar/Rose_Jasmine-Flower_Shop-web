@@ -9,6 +9,7 @@ import AdminProdactSection from './Components/pages/AdminProdactSection.tsx'
 import ReactDOM from 'react-dom/client'
 import AdminOrderSection from './Components/pages/AdminOrderSection.tsx'
 import AdminDashboard from './Components/pages/AdminDashboard.tsx'
+import PaymentPage from './Components/common/Header/PaymentPage.tsx'
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/orders",
         element: <AdminOrderSection />,
+      },
+      {
+        path: "/paymentPage",
+        element: <PaymentPage />,
       },
     ],
   },

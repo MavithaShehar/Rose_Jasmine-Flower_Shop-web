@@ -1,5 +1,6 @@
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import jsonData from "../../../../public/data/ordercard.json";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom for internal navigation
 
 interface OrderCard {
     id: number;
@@ -12,7 +13,7 @@ interface OrderCard {
 }
 
 function Ordered({ isCartOpen, toggleCart }: { isCartOpen: boolean; toggleCart: () => void }) {
-    const orderCards: OrderCard[] = jsonData.ordercads; // Ensure correct key name
+    const orderCards: OrderCard[] = jsonData.ordercads; // Ensure the key is correct
 
     return (
         <div
@@ -29,16 +30,16 @@ function Ordered({ isCartOpen, toggleCart }: { isCartOpen: boolean; toggleCart: 
 
             {/* Order Items */}
             <div className="p-4 flex flex-col items-center">
-                <div className="w-full h-fit px-2 py-2  flex flex-col items-center">
+                <div className="w-full h-fit px-2 py-2 flex flex-col items-center">
                     {orderCards.map((orderCard) => (
-                        <div key={orderCard.id} className="w-full h-28 mb-2 rounded-md flex flex-row justify-around gap-2  p-2 shadow-md border">
+                        <div key={orderCard.id} className="w-full h-28 mb-2 rounded-md flex flex-row justify-around gap-2 p-2 shadow-md border">
                             {/* Product Image */}
                             <div className="w-1/3 h-24 overflow-hidden flex items-center justify-center">
                                 <img src={orderCard.image} alt={orderCard.name} className="w-full h-full object-cover rounded-md" />
                             </div>
 
                             {/* Product Details */}
-                            <div className="flex flex-col justify-center ">
+                            <div className="flex flex-col justify-center">
                                 <p className="font-semibold">{orderCard.name}</p>
                                 <p className="text-sm">Color: {orderCard.color}</p>
                                 <p className="text-sm">Price: ${orderCard.price}</p>
@@ -54,10 +55,13 @@ function Ordered({ isCartOpen, toggleCart }: { isCartOpen: boolean; toggleCart: 
                 </div>
 
                 {/* Order Button */}
-                <div className=" w-full p-4 border-t shadow-md bg-gray-100">
-                    <button className="w-full py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition">
+                <div className="w-full p-4 border-t shadow-md bg-gray-100">
+                    <Link
+                        to="/paymentPage"
+                        className="w-full block text-center py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition"
+                    >
                         Place Order
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>
