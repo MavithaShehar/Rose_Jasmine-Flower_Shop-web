@@ -31,8 +31,8 @@ function AddSection() {
   }, [currentIndex]);
 
   return (
-    <div className='bg-red-500 w-full h-fit pl-20 pr-20'>
-      <div className='max-w-screen h-[550px] w-full m-auto pb-10 relative group bg-amber-300'>
+    <div className=' w-full h-fit pl-20 pr-20'>
+      <div className='max-w-screen h-[550px] w-full m-auto pb-10 relative group '>
         {slides.length > 0 && (
           <div
             style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
