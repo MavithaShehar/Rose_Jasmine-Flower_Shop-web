@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import jsonData from "../../../public/data/prodact.json"; 
+import { useEffect, useState } from "react";
 
 interface Flower {
   _id: string;
@@ -36,17 +35,17 @@ function ProductSection(){
   }, []);
       
   return (
-    <section className="bg-red-800 py-10">
-      <div className="w-full pl-20 pr-20 bg-amber-300">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 bg-amber-900">
+    <section className="">
+      <div className="w-full pl-20 pr-20 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 ">
           {flowers.map((flower) => {
             if (flower.status === "active") {
                 return (
                     <div
                       key={flower._id}
-                      className="bg-white p-1 rounded-lg shadow-lg transform transition-all hover:scale-105 hover:shadow-2xl"
+                      className="bg-white p-1 rounded-lg shadow-lg transform transition-all hover:scale-105 hover:shadow-2xl border-3 border-pink-500 border-s"
                     >
-                      <div className="flex flex-col items-center bg-amber-300">
+                      <div className="flex flex-col items-center ">
                         {/* Background image */}
                         <div
                           style={{
@@ -56,7 +55,7 @@ function ProductSection(){
                         ></div>
       
                         {/* Flower details */}
-                        <div className="text-center space-y-2 bg-red-600">
+                        <div className="text-center space-y-2 ">
                           <h3 className="text-xl font-semibold text-gray-800">
                             {flower.name}
                           </h3>
