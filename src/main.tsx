@@ -5,6 +5,7 @@ import ErrorPage from './Components/pages/404/ErrorPage.tsx'
 import Home from './Components/pages/Home.tsx'
 import ReactDOM from 'react-dom/client'
 import AboutShop from './Components/pages/AboutShop.tsx'
+import PaymentPage from './Components/common/Header/PaymentPage.tsx'
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <AboutShop />,
+      },
+      {
+        path: "/paymentPage",
+        element: <PaymentPage />,
       },
       
     ],
