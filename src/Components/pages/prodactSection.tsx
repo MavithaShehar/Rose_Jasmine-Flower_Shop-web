@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import jsonData from "../../../public/data/prodact.json"; 
+import { useEffect, useState } from "react";
 
 interface Flower {
   _id: string;
